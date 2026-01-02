@@ -334,6 +334,105 @@ nav a:hover{color:var(--primary)}
     .hero h1{font-size:34px}
     .about-grid{grid-template-columns:1fr}
 }
+
+/* =============================
+   GLOBAL SPACING IMPROVEMENT
+============================= */
+.section{
+    margin:120px auto;
+    padding:0 24px;
+}
+
+.section-title{
+    margin-bottom:56px;
+    letter-spacing:.5px;
+}
+
+/* =============================
+   HERO REFINEMENT
+============================= */
+.hero{
+    padding:140px 24px 110px;
+}
+
+.hero h1{
+    max-width:780px;
+    margin:0 auto 22px;
+}
+
+.hero p{
+    font-size:15.5px;
+    opacity:.9;
+}
+
+/* =============================
+   ABOUT SECTION REFINEMENT
+============================= */
+.about-grid{
+    max-width:1000px;
+    margin:auto;
+    gap:60px;
+}
+
+.about-card{
+    padding:40px;
+}
+
+.about-card p{
+    margin-top:14px;
+}
+
+/* =============================
+   EXPERIENCE CLEANUP
+============================= */
+.experience-item{
+    padding:32px 36px;
+}
+
+.experience-header{
+    align-items:flex-start;
+    gap:12px;
+}
+
+.experience-header h3{
+    line-height:1.3;
+}
+
+.experience-header span{
+    white-space:nowrap;
+}
+
+/* =============================
+   PROJECT CARD BALANCE
+============================= */
+.text-card{
+    padding:32px;
+}
+
+.text-card h3{
+    margin-bottom:12px;
+}
+
+.text-card p{
+    line-height:1.65;
+}
+
+/* =============================
+   RESPONSIVE TWEAK
+============================= */
+@media(max-width:900px){
+    .section{
+        margin:90px auto;
+    }
+
+    .hero{
+        padding:120px 22px 90px;
+    }
+
+    .about-grid{
+        gap:40px;
+    }
+}
 </style>
 </head>
 
@@ -527,4 +626,3 @@ window.addEventListener("load", revealOnScroll);
 
 </body>
 </html>
-
