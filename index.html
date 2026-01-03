@@ -22,7 +22,7 @@ body{
     margin:0;
     font-family:"Poppins",sans-serif;
     background:#3a4efb;
-    color:#ffff;
+    color:#e3ff3b;
     overflow-x:hidden;
 }
 
@@ -136,7 +136,7 @@ nav a:hover{color:var(--primary)}
     border-radius:30px;
     font-size:13px;
     border:1px solid var(--border);
-    background:rgba(255,255,255,.04);
+    background:#ffffff2c;
 }
 
 /* ===== SOCIAL BUTTONS ===== */
@@ -154,7 +154,7 @@ nav a:hover{color:var(--primary)}
     align-items:center;
     justify-content:center;
     border:1px solid var(--border);
-    background:rgba(255,255,255,.04);
+    background:#ffffff2c;
     color:var(--primary);
     transition:.3s ease;
     position:relative;
@@ -163,42 +163,6 @@ nav a:hover{color:var(--primary)}
 .social-btn:hover{
     transform:translateY(-4px);
     box-shadow:0 0 26px #e3ff3b;
-}
-
-/* ===== TOOLTIP ===== */
-.social-btn::after{
-    content:attr(data-tooltip);
-    position:absolute;
-    bottom:-42px;
-    left:50%;
-    transform:translateX(-50%) translateY(6px);
-    background:#0b0f20;
-    padding:6px 12px;
-    font-size:12px;
-    border-radius:8px;
-    opacity:0;
-    transition:.25s ease;
-    white-space:nowrap;
-    border:1px solid var(--border);
-}
-
-.social-btn::before{
-    content:"";
-    position:absolute;
-    bottom:-16px;
-    left:50%;
-    transform:translateX(-50%);
-    border-width:6px;
-    border-style:solid;
-    border-color:rgba(20,24,60,.95) transparent transparent transparent;
-    opacity:0;
-    transition:.25s ease;
-}
-
-.social-btn:hover::after,
-.social-btn:hover::before{
-    opacity:1;
-    transform:translateX(-50%) translateY(0);
 }
 
 /* ===== EXPERIENCE ===== */
@@ -211,7 +175,7 @@ nav a:hover{color:var(--primary)}
 }
 
 .experience-item{
-    background:linear-gradient(145deg,#0b0f20,#090c18);
+    background:#ffffff2c;
     border-radius:22px;
     padding:30px 34px;
     border:1px solid var(--border);
@@ -250,7 +214,7 @@ nav a:hover{color:var(--primary)}
 }
 
 .text-card{
-    background:radial-gradient(120% 120% at top left,#0b0f20,#090c18);
+    background:#ffffff2c;
     border-radius:26px;
     padding:36px;
     border:1px solid var(--border);
@@ -262,7 +226,7 @@ nav a:hover{color:var(--primary)}
 
 .text-card:hover{
     transform:translateY(-10px);
-    box-shadow:0 0 40px #e000ff55;
+    box-shadow:0 0 40px #e3ff3b;
 }
 
 .text-card h3{
@@ -280,7 +244,7 @@ nav a:hover{color:var(--primary)}
     align-self:flex-start;
     padding:12px 28px;
     border-radius:14px;
-    background:linear-gradient(135deg,#e000ff,#b800ff);
+    background:#e3ff3b;
     color:#000;
     font-weight:600;
     text-decoration:none;
