@@ -3,1189 +3,447 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rifky Hidayat — Accountant & Finance Professional</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>Rifky Hidayat — Finance Professional</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root {
-    --black: #0A0A0A;
-    --white: #F7F5F0;
-    --ink: #1C1C1C;
-    --teal: #0D7377;
-    --teal-light: #14A3A8;
-    --teal-pale: #E6F4F4;
-    --gray: #8A8A8A;
-    --gray-light: #E8E6E1;
-    --red-accent: #C4362A;
+:root{
+  --bg:#000;
+  --bg1:#0A0A0A;
+  --bg2:#111;
+  --bg3:#1A1A1A;
+  --sur:rgba(255,255,255,0.04);
+  --sur2:rgba(255,255,255,0.07);
+  --bdr:rgba(255,255,255,0.08);
+  --bdr2:rgba(255,255,255,0.15);
+  --t1:#F5F5F7;
+  --t2:rgba(245,245,247,0.6);
+  --t3:rgba(245,245,247,0.35);
+  --blue:#0A84FF;
+  --green:#30D158;
+  --purple:#5E5CE6;
+  --grad:linear-gradient(135deg,#0A84FF 0%,#5E5CE6 100%);
 }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--t1);overflow-x:hidden;-webkit-font-smoothing:antialiased;cursor:none;}
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
+/* CURSOR */
+#cur{width:8px;height:8px;background:var(--blue);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
+#curR{width:30px;height:30px;border:1px solid rgba(10,132,255,0.45);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:transform .45s cubic-bezier(.2,1,.3,1);}
 
-body {
-    font-family: 'Outfit', sans-serif;
-    background: var(--white);
-    color: var(--ink);
-    overflow-x: hidden;
-    cursor: none;
-}
+/* NOISE */
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");pointer-events:none;z-index:1;opacity:.5;}
 
-/* ── CUSTOM CURSOR ── */
-.cursor {
-    width: 10px; height: 10px;
-    background: var(--teal);
-    border-radius: 50%;
-    position: fixed;
-    top: 0; left: 0;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-    transition: transform .15s ease, width .3s, height .3s, background .3s;
-    mix-blend-mode: multiply;
-}
-.cursor-ring {
-    width: 36px; height: 36px;
-    border: 1.5px solid var(--teal);
-    border-radius: 50%;
-    position: fixed;
-    top: 0; left: 0;
-    pointer-events: none;
-    z-index: 9998;
-    transform: translate(-50%, -50%);
-    transition: transform .4s cubic-bezier(.2,1,.3,1), width .3s, height .3s;
-    opacity: 0.6;
-}
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:500;height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 max(40px,5vw);background:rgba(0,0,0,0.75);backdrop-filter:saturate(180%) blur(24px);-webkit-backdrop-filter:saturate(180%) blur(24px);border-bottom:1px solid var(--bdr);}
+.nav-logo{font-size:16px;font-weight:600;letter-spacing:-0.02em;color:var(--t1);text-decoration:none;}
+.nav-logo span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.nav-links{display:flex;gap:28px;align-items:center;}
+.nav-links a{font-size:13px;font-weight:400;color:var(--t2);text-decoration:none;letter-spacing:-0.01em;transition:color .2s;}
+.nav-links a:hover{color:var(--t1);}
+.nav-cta{padding:7px 18px!important;background:var(--blue);color:#fff!important;border-radius:980px;font-weight:500!important;transition:opacity .2s!important;}
+.nav-cta:hover{opacity:.85;}
 
-/* ── HEADER ── */
-header {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 500;
-    padding: 0 64px;
-    height: 72px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: var(--white);
-    border-bottom: 1.5px solid var(--black);
-}
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:52px max(40px,5vw) 0;position:relative;overflow:hidden;}
+.glow1{position:absolute;width:900px;height:900px;background:radial-gradient(circle,rgba(10,132,255,.11) 0%,transparent 68%);top:50%;left:50%;transform:translate(-50%,-58%);pointer-events:none;}
+.glow2{position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(94,92,230,.07) 0%,transparent 70%);top:65%;left:25%;pointer-events:none;}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;background:rgba(10,132,255,.1);border:1px solid rgba(10,132,255,.22);border-radius:980px;font-size:12px;font-weight:500;color:var(--blue);margin-bottom:36px;letter-spacing:.01em;}
+.badge-dot{width:5px;height:5px;border-radius:50%;background:var(--blue);animation:pulse 2.2s ease infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(1.5)}}
+.hero-name{font-size:clamp(64px,9vw,130px);font-weight:700;letter-spacing:-0.045em;line-height:.92;color:var(--t1);margin-bottom:28px;}
+.hero-name .g{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-sub{font-size:clamp(15px,1.8vw,19px);font-weight:300;color:var(--t2);max-width:500px;line-height:1.65;letter-spacing:-.01em;margin:0 auto 44px;}
+.hero-btns{display:flex;align-items:center;gap:14px;justify-content:center;flex-wrap:wrap;}
+.btn-p{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:var(--blue);color:#fff;border-radius:980px;font-size:15px;font-weight:500;text-decoration:none;letter-spacing:-.01em;transition:opacity .2s,transform .2s;}
+.btn-p:hover{opacity:.85;transform:scale(.98);}
+.btn-s{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;border:1px solid var(--bdr2);color:var(--t1);border-radius:980px;font-size:15px;font-weight:400;text-decoration:none;letter-spacing:-.01em;background:var(--sur);transition:background .2s,transform .2s;backdrop-filter:blur(10px);}
+.btn-s:hover{background:var(--sur2);transform:scale(.98);}
+.stats-row{display:flex;gap:0;margin-top:80px;border:1px solid var(--bdr);border-radius:20px;overflow:hidden;background:var(--sur);backdrop-filter:blur(20px);max-width:620px;width:100%;}
+.stat{flex:1;padding:28px 16px;border-right:1px solid var(--bdr);text-align:center;}
+.stat:last-child{border-right:none;}
+.stat-n{font-size:30px;font-weight:700;letter-spacing:-.03em;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:6px;}
+.stat-l{font-size:11px;color:var(--t3);line-height:1.4;font-weight:400;}
+.scroll-down{position:absolute;bottom:38px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:7px;opacity:.3;animation:bob 2.2s ease infinite;}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(7px)}}
+.scroll-down span{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--t3);}
 
-.logo {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px;
-    letter-spacing: 3px;
-    color: var(--black);
-}
-.logo em {
-    color: var(--teal);
-    font-style: normal;
-}
+/* SECTION */
+.sec{padding:100px max(40px,5vw);}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:5px 12px;border:1px solid var(--bdr);border-radius:980px;font-size:11px;font-weight:500;color:var(--t3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:24px;}
+.stitle{font-size:clamp(34px,5vw,60px);font-weight:700;letter-spacing:-.04em;line-height:1;color:var(--t1);margin-bottom:14px;}
+.stitle .g{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.ssub{font-size:17px;font-weight:300;color:var(--t2);line-height:1.6;letter-spacing:-.01em;max-width:460px;margin-bottom:56px;}
 
-nav { display: flex; gap: 0; }
-nav a {
-    padding: 0 22px;
-    height: 72px;
-    display: flex;
-    align-items: center;
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: var(--gray);
-    border-left: 1.5px solid var(--black);
-    transition: all .2s;
-}
-nav a:last-child { border-right: 1.5px solid var(--black); }
-nav a:hover { background: var(--black); color: var(--white); }
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:300px 1fr;gap:20px;}
+.card{background:var(--sur);border:1px solid var(--bdr);border-radius:20px;padding:28px;backdrop-filter:blur(20px);}
+.avatar{width:100%;aspect-ratio:1;background:linear-gradient(135deg,#141414,#0D0D0D);border-radius:14px;border:1px solid var(--bdr);display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--t3);gap:10px;font-size:10px;letter-spacing:.15em;text-transform:uppercase;margin-bottom:20px;}
+.links{display:flex;flex-direction:column;gap:2px;}
+.lnk{display:flex;align-items:center;justify-content:space-between;padding:11px 12px;border-radius:10px;text-decoration:none;transition:background .2s;}
+.lnk:hover{background:var(--sur2);}
+.lnk-l{display:flex;align-items:center;gap:10px;}
+.lnk-ic{width:28px;height:28px;background:var(--bg3);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;}
+.lnk-name{font-size:13px;font-weight:400;color:var(--t1);letter-spacing:-.01em;}
+.lnk-val{font-size:11px;color:var(--t3);}
+.chev{color:var(--t3);font-size:13px;}
+.about-r{display:flex;flex-direction:column;gap:16px;}
+.text-card{background:var(--sur);border:1px solid var(--bdr);border-radius:20px;padding:32px;backdrop-filter:blur(20px);}
+.text-card p{font-size:15px;line-height:1.8;color:var(--t2);font-weight:300;letter-spacing:-.01em;margin-bottom:14px;}
+.text-card p:last-of-type{margin-bottom:0;}
+.text-card strong{font-weight:600;color:var(--t1);}
+.text-card em{font-style:normal;color:var(--blue);font-weight:500;}
+.skills-card{background:var(--sur);border:1px solid var(--bdr);border-radius:20px;padding:32px;backdrop-filter:blur(20px);}
+.sk-head{font-size:14px;font-weight:600;letter-spacing:-.02em;color:var(--t1);margin-bottom:24px;}
+.sk{margin-bottom:18px;}
+.sk:last-child{margin-bottom:0;}
+.sk-top{display:flex;justify-content:space-between;margin-bottom:8px;}
+.sk-lbl{font-size:13px;font-weight:400;color:var(--t2);letter-spacing:-.01em;}
+.sk-pct{font-size:12px;font-weight:500;color:var(--t3);}
+.sk-bar{height:2px;background:var(--bdr);border-radius:2px;overflow:hidden;}
+.sk-fill{height:100%;background:var(--grad);transform:scaleX(0);transform-origin:left;transition:transform 1.4s cubic-bezier(.4,0,.2,1);}
+.sk-fill.go{transform:scaleX(1);}
 
-/* ── HERO ── */
-.hero {
-    min-height: 100vh;
-    padding-top: 72px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    border-bottom: 1.5px solid var(--black);
-}
+/* EXPERIENCE */
+.exp-list{display:flex;flex-direction:column;gap:12px;}
+.exp-card{background:var(--sur);border:1px solid var(--bdr);border-radius:20px;padding:32px;display:grid;grid-template-columns:48px 1fr;gap:20px;align-items:start;backdrop-filter:blur(20px);transition:border-color .3s,background .3s;cursor:default;}
+.exp-card:hover{border-color:var(--bdr2);background:var(--sur2);}
+.exp-logo{width:48px;height:48px;background:var(--bg3);border-radius:12px;border:1px solid var(--bdr);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--t2);flex-shrink:0;}
+.exp-meta{display:flex;align-items:center;gap:8px;margin-bottom:5px;flex-wrap:wrap;}
+.exp-role-tag{font-size:11px;font-weight:500;color:var(--blue);background:rgba(10,132,255,.1);border:1px solid rgba(10,132,255,.2);padding:3px 10px;border-radius:980px;}
+.exp-time{font-size:11px;color:var(--t3);}
+.exp-co{font-size:18px;font-weight:600;letter-spacing:-.03em;color:var(--t1);margin-bottom:8px;}
+.exp-desc{font-size:13px;line-height:1.7;color:var(--t2);font-weight:300;letter-spacing:-.01em;}
 
-.hero-left {
-    padding: 80px 64px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border-right: 1.5px solid var(--black);
-}
+/* CERTIFICATIONS */
+.cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.cert-card{background:var(--sur);border:1px solid var(--bdr);border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:14px;backdrop-filter:blur(20px);transition:border-color .3s,background .3s,transform .3s;cursor:default;}
+.cert-card:hover{border-color:var(--bdr2);background:var(--sur2);transform:translateY(-3px);}
+.cert-ic{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;}
+.cert-ic.b{background:rgba(10,132,255,.14);}
+.cert-ic.g{background:rgba(48,209,88,.14);}
+.cert-ic.p{background:rgba(94,92,230,.14);}
+.ctag{font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;}
+.ctag.b{color:var(--blue);}
+.ctag.g{color:var(--green);}
+.ctag.p{color:var(--purple);}
+.cname{font-size:26px;font-weight:700;letter-spacing:-.04em;line-height:1.05;color:var(--t1);}
+.cdesc{font-size:13px;line-height:1.65;color:var(--t2);font-weight:300;letter-spacing:-.01em;flex:1;}
+.cdesc strong{font-weight:500;color:var(--t1);}
+.cbadge{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:500;padding:4px 10px;border-radius:980px;width:fit-content;margin-top:auto;}
+.cbadge.b{background:rgba(10,132,255,.1);color:var(--blue);border:1px solid rgba(10,132,255,.2);}
+.cbadge.g{background:rgba(48,209,88,.1);color:var(--green);border:1px solid rgba(48,209,88,.2);}
+.cbadge.p{background:rgba(94,92,230,.1);color:var(--purple);border:1px solid rgba(94,92,230,.2);}
 
-.hero-eyebrow {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-bottom: 40px;
-}
-.hero-eyebrow span {
-    font-size: 11px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--teal);
-    font-weight: 600;
-}
-.hero-dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--teal);
-    animation: pulse 2s infinite;
-}
-@keyframes pulse {
-    0%, 100% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.6); opacity: 0.5; }
-}
+/* SERVICES */
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.srv-card{background:var(--sur);border:1px solid var(--bdr);border-radius:20px;padding:32px;backdrop-filter:blur(20px);transition:border-color .3s,background .3s,transform .3s;cursor:default;}
+.srv-card:hover{border-color:var(--bdr2);background:var(--sur2);transform:translateY(-3px);}
+.srv-n{font-size:11px;font-weight:500;color:var(--t3);letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px;}
+.srv-ic{width:38px;height:38px;background:rgba(10,132,255,.1);border-radius:9px;display:flex;align-items:center;justify-content:center;color:var(--blue);margin-bottom:14px;}
+.srv-t{font-size:16px;font-weight:600;letter-spacing:-.03em;color:var(--t1);margin-bottom:8px;}
+.srv-d{font-size:13px;line-height:1.65;color:var(--t2);font-weight:300;letter-spacing:-.01em;}
 
-.hero-name {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(72px, 8vw, 130px);
-    line-height: 0.9;
-    letter-spacing: 2px;
-    color: var(--black);
-}
-.hero-name .line-teal { color: var(--teal); }
+/* EDUCATION */
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.edu-card{background:var(--sur);border:1px solid var(--bdr);border-radius:20px;padding:40px;backdrop-filter:blur(20px);transition:border-color .3s,background .3s;}
+.edu-card:hover{border-color:var(--bdr2);background:var(--sur2);}
+.edu-pill{display:inline-flex;padding:4px 12px;border:1px solid var(--bdr);border-radius:980px;font-size:11px;font-weight:500;color:var(--t3);margin-bottom:20px;}
+.edu-deg{font-size:26px;font-weight:700;letter-spacing:-.04em;line-height:1.05;color:var(--t1);margin-bottom:6px;}
+.edu-sc{font-size:14px;color:var(--blue);font-weight:400;margin-bottom:18px;letter-spacing:-.01em;}
+.edu-d{font-size:13px;line-height:1.7;color:var(--t2);font-weight:300;letter-spacing:-.01em;}
 
-.hero-bottom {
-    display: flex;
-    flex-direction: column;
-    gap: 28px;
-}
-.hero-desc {
-    font-size: 15px;
-    line-height: 1.85;
-    color: var(--gray);
-    max-width: 420px;
-    font-weight: 300;
-}
-.hero-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 16px;
-    background: var(--black);
-    color: var(--white);
-    padding: 18px 32px;
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    width: fit-content;
-    transition: all .3s;
-    position: relative;
-    overflow: hidden;
-}
-.hero-cta::before {
-    content: '';
-    position: absolute;
-    left: 0; top: 0;
-    width: 0; height: 100%;
-    background: var(--teal);
-    transition: width .4s cubic-bezier(.4,0,.2,1);
-    z-index: 0;
-}
-.hero-cta:hover::before { width: 100%; }
-.hero-cta span { position: relative; z-index: 1; }
-.hero-cta svg { position: relative; z-index: 1; }
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.contact-l{background:linear-gradient(135deg,rgba(10,132,255,.13) 0%,rgba(94,92,230,.13) 100%);border:1px solid rgba(10,132,255,.18);border-radius:24px;padding:52px;display:flex;flex-direction:column;justify-content:space-between;backdrop-filter:blur(20px);position:relative;overflow:hidden;}
+.contact-l::before{content:'';position:absolute;top:-80px;right:-80px;width:260px;height:260px;background:radial-gradient(circle,rgba(10,132,255,.14) 0%,transparent 70%);pointer-events:none;}
+.c-head{font-size:clamp(38px,5vw,68px);font-weight:700;letter-spacing:-.04em;line-height:.97;color:var(--t1);}
+.c-head .g{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;}
+.c-sub{font-size:15px;font-weight:300;color:var(--t2);line-height:1.6;letter-spacing:-.01em;margin-top:18px;}
+.c-chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:36px;}
+.c-chip{padding:5px 13px;background:rgba(255,255,255,.05);border:1px solid var(--bdr2);border-radius:980px;font-size:11px;font-weight:500;color:var(--t2);letter-spacing:.04em;}
+.contact-r{background:var(--sur);border:1px solid var(--bdr);border-radius:24px;padding:52px;backdrop-filter:blur(20px);display:flex;flex-direction:column;justify-content:center;}
+.c-list{display:flex;flex-direction:column;margin-bottom:30px;}
+.c-row{display:flex;flex-direction:column;gap:4px;padding:16px 0;border-bottom:1px solid var(--bdr);}
+.c-row:first-child{border-top:1px solid var(--bdr);}
+.c-type{font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);}
+.c-val{font-size:15px;font-weight:400;color:var(--t1);text-decoration:none;letter-spacing:-.01em;transition:color .2s;}
+.c-val:hover{color:var(--blue);}
 
-.hero-right {
-    display: flex;
-    flex-direction: column;
-}
-.hero-stat-block {
-    flex: 1;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    border-bottom: 1.5px solid var(--black);
-}
-.stat-cell {
-    padding: 44px 40px;
-    border-right: 1.5px solid var(--black);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-}
-.stat-cell:nth-child(even) { border-right: none; }
-.stat-big {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 72px;
-    line-height: 1;
-    color: var(--teal);
-}
-.stat-label {
-    font-size: 12px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--gray);
-    margin-top: 8px;
-}
+/* FOOTER */
+footer{border-top:1px solid var(--bdr);padding:26px max(40px,5vw);display:flex;align-items:center;justify-content:space-between;}
+footer p{font-size:12px;color:var(--t3);font-weight:300;}
+.f-logo{font-size:15px;font-weight:700;letter-spacing:-.02em;color:var(--t1);}
+.f-logo span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 
-.hero-cert-preview {
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-.cert-preview-label {
-    font-size: 11px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--gray);
-    margin-bottom: 4px;
-}
-.cert-pill-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-.cert-pill {
-    padding: 8px 16px;
-    border: 1.5px solid var(--black);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    color: var(--black);
-    background: transparent;
-    transition: all .2s;
-}
-.cert-pill.teal { border-color: var(--teal); color: var(--teal); background: var(--teal-pale); }
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.on{opacity:1;transform:none;}
+.d1{transition-delay:.08s;}.d2{transition-delay:.16s;}.d3{transition-delay:.24s;}.d4{transition-delay:.32s;}
 
-/* ── SECTION WRAPPER ── */
-.section-wrap {
-    border-bottom: 1.5px solid var(--black);
-}
-
-.section-header {
-    display: grid;
-    grid-template-columns: 260px 1fr;
-    border-bottom: 1.5px solid var(--black);
-}
-.section-num {
-    padding: 32px 40px;
-    border-right: 1.5px solid var(--black);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-.section-num-big {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 56px;
-    line-height: 1;
-    color: var(--gray-light);
-}
-.section-num-label {
-    font-size: 11px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--teal);
-    margin-top: 4px;
-    font-weight: 600;
-}
-.section-title-wrap {
-    padding: 32px 48px;
-    display: flex;
-    align-items: center;
-}
-.section-title-wrap h2 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(38px, 4vw, 60px);
-    letter-spacing: 2px;
-    color: var(--black);
-    line-height: 1;
-}
-
-/* ── ABOUT ── */
-.about-body {
-    display: grid;
-    grid-template-columns: 260px 1fr;
-}
-.about-sidebar {
-    border-right: 1.5px solid var(--black);
-    padding: 48px 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-}
-.about-avatar {
-    width: 100%;
-    aspect-ratio: 3/4;
-    background: var(--gray-light);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border: 1.5px solid var(--black);
-    color: var(--gray);
-    gap: 10px;
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
-.socials { display: flex; flex-direction: column; gap: 0; }
-.social-link {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 14px 0;
-    border-top: 1px solid var(--gray-light);
-    text-decoration: none;
-    color: var(--gray);
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    transition: color .2s;
-}
-.social-link:hover { color: var(--teal); }
-.social-link svg { flex-shrink: 0; }
-
-.about-main { padding: 48px 56px; }
-.about-main p {
-    font-size: 16px;
-    line-height: 1.9;
-    color: var(--ink);
-    margin-bottom: 22px;
-    font-weight: 300;
-}
-.about-main p strong { font-weight: 600; color: var(--black); }
-.about-main p em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--teal); font-size: 17px; }
-
-.skills-section { margin-top: 44px; }
-.skills-heading {
-    font-size: 11px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--gray);
-    margin-bottom: 20px;
-    padding-bottom: 12px;
-    border-bottom: 1.5px solid var(--black);
-}
-.skill-row {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 14px 0;
-    border-bottom: 1px solid var(--gray-light);
-}
-.skill-name { width: 220px; font-size: 14px; font-weight: 500; color: var(--black); flex-shrink: 0; }
-.skill-track {
-    flex: 1;
-    height: 2px;
-    background: var(--gray-light);
-    position: relative;
-}
-.skill-fill {
-    position: absolute;
-    left: 0; top: 0;
-    height: 100%;
-    background: var(--teal);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 1.4s cubic-bezier(.4,0,.2,1);
-}
-.skill-fill.go { transform: scaleX(1); }
-.skill-pct { font-size: 12px; color: var(--gray); width: 34px; text-align: right; flex-shrink: 0; }
-
-/* ── EXPERIENCE ── */
-.exp-body { display: flex; flex-direction: column; }
-.exp-item {
-    display: grid;
-    grid-template-columns: 260px 1fr;
-    border-bottom: 1.5px solid var(--black);
-    transition: background .2s;
-}
-.exp-item:last-child { border-bottom: none; }
-.exp-item:hover { background: var(--teal-pale); }
-.exp-left {
-    padding: 40px;
-    border-right: 1.5px solid var(--black);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-.exp-year {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 15px;
-    letter-spacing: 2px;
-    color: var(--teal);
-}
-.exp-company-icon {
-    width: 44px; height: 44px;
-    border: 1.5px solid var(--black);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 16px;
-    color: var(--black);
-    background: var(--white);
-    margin-top: 16px;
-    letter-spacing: 1px;
-}
-.exp-right { padding: 40px 48px; }
-.exp-role {
-    font-size: 11px;
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-    color: var(--gray);
-    margin-bottom: 8px;
-    font-weight: 600;
-}
-.exp-company {
-    font-family: 'Instrument Serif', serif;
-    font-size: 28px;
-    color: var(--black);
-    margin-bottom: 16px;
-    font-style: italic;
-}
-.exp-desc {
-    font-size: 14.5px;
-    line-height: 1.8;
-    color: var(--gray);
-    font-weight: 300;
-    max-width: 640px;
-}
-
-/* ── CERTIFICATIONS ── */
-.cert-body {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-}
-.cert-card {
-    padding: 44px 40px;
-    border-right: 1.5px solid var(--black);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 280px;
-    transition: background .2s;
-    position: relative;
-    overflow: hidden;
-}
-.cert-card:last-child { border-right: none; }
-.cert-card::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0;
-    width: 100%; height: 3px;
-    background: var(--teal);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform .4s ease;
-}
-.cert-card:hover::after { transform: scaleX(1); }
-.cert-card:hover { background: var(--teal-pale); }
-
-.cert-badge {
-    display: inline-block;
-    padding: 6px 14px;
-    background: var(--black);
-    color: var(--white);
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    width: fit-content;
-    margin-bottom: 24px;
-}
-.cert-badge.verified { background: var(--teal); }
-.cert-badge.national { background: var(--red-accent); }
-
-.cert-name {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 30px;
-    letter-spacing: 1.5px;
-    line-height: 1.1;
-    color: var(--black);
-    margin-bottom: 12px;
-}
-.cert-issuer {
-    font-size: 13px;
-    color: var(--gray);
-    line-height: 1.5;
-}
-.cert-issuer strong { color: var(--black); font-weight: 600; }
-
-.cert-footer {
-    margin-top: 28px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 12px;
-    color: var(--teal);
-    font-weight: 600;
-    letter-spacing: 0.5px;
-}
-
-/* ── SERVICES ── */
-.services-body {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-}
-.srv-card {
-    padding: 48px 40px;
-    border-right: 1.5px solid var(--black);
-    border-bottom: 1.5px solid var(--black);
-    transition: background .2s;
-    cursor: default;
-}
-.srv-card:nth-child(3n) { border-right: none; }
-.srv-card:nth-child(4), .srv-card:nth-child(5), .srv-card:nth-child(6) { border-bottom: none; }
-.srv-card:hover { background: var(--black); }
-.srv-card:hover .srv-num { color: rgba(255,255,255,0.07); }
-.srv-card:hover .srv-title { color: var(--white); }
-.srv-card:hover .srv-desc { color: rgba(255,255,255,0.5); }
-.srv-card:hover .srv-arrow { border-color: var(--teal); color: var(--teal); }
-
-.srv-num {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 64px;
-    color: var(--gray-light);
-    line-height: 1;
-    margin-bottom: 24px;
-    transition: color .2s;
-}
-.srv-title {
-    font-family: 'Instrument Serif', serif;
-    font-size: 22px;
-    font-style: italic;
-    color: var(--black);
-    margin-bottom: 14px;
-    transition: color .2s;
-}
-.srv-desc {
-    font-size: 14px;
-    line-height: 1.75;
-    color: var(--gray);
-    transition: color .2s;
-}
-.srv-arrow {
-    margin-top: 28px;
-    width: 36px; height: 36px;
-    border: 1.5px solid var(--black);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--black);
-    transition: all .2s;
-}
-
-/* ── EDUCATION ── */
-.edu-body {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-.edu-card {
-    padding: 56px 52px;
-    border-right: 1.5px solid var(--black);
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-.edu-card:last-child { border-right: none; }
-.edu-year-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 11px;
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-    color: var(--teal);
-    font-weight: 600;
-}
-.edu-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 38px;
-    letter-spacing: 1px;
-    color: var(--black);
-    line-height: 1.05;
-}
-.edu-school {
-    font-family: 'Instrument Serif', serif;
-    font-style: italic;
-    font-size: 20px;
-    color: var(--teal);
-}
-.edu-desc {
-    font-size: 14px;
-    line-height: 1.75;
-    color: var(--gray);
-    font-weight: 300;
-    margin-top: 8px;
-}
-
-/* ── CONTACT ── */
-.contact-body {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 360px;
-}
-.contact-left {
-    padding: 64px;
-    border-right: 1.5px solid var(--black);
-    background: var(--black);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-.contact-headline {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(44px, 5vw, 72px);
-    color: var(--white);
-    letter-spacing: 2px;
-    line-height: 1;
-}
-.contact-headline em {
-    color: var(--teal);
-    font-style: normal;
-    display: block;
-}
-.contact-sub {
-    font-size: 14px;
-    color: rgba(255,255,255,0.45);
-    line-height: 1.7;
-    margin-top: 20px;
-    font-weight: 300;
-}
-.contact-right {
-    padding: 64px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 20px;
-}
-.contact-item {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    padding: 20px 0;
-    border-bottom: 1px solid var(--gray-light);
-}
-.contact-type {
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--gray);
-}
-.contact-val {
-    font-size: 16px;
-    color: var(--black);
-    font-weight: 500;
-    text-decoration: none;
-    transition: color .2s;
-}
-.contact-val:hover { color: var(--teal); }
-.contact-btn {
-    margin-top: 12px;
-    padding: 16px 32px;
-    background: var(--teal);
-    color: var(--white);
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    text-decoration: none;
-    display: inline-block;
-    width: fit-content;
-    transition: background .2s;
-}
-.contact-btn:hover { background: var(--teal-light); }
-
-/* ── FOOTER ── */
-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 24px 64px;
-    border-top: 1.5px solid var(--black);
-}
-footer p { font-size: 12px; color: var(--gray); letter-spacing: 0.5px; }
-.footer-logo {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 20px;
-    letter-spacing: 3px;
-    color: var(--black);
-}
-.footer-logo em { color: var(--teal); font-style: normal; }
-
-/* ── REVEAL ── */
-.reveal {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity .65s ease, transform .65s ease;
-}
-.reveal.on { opacity: 1; transform: none; }
-.r2 { transition-delay: .1s; }
-.r3 { transition-delay: .2s; }
-.r4 { transition-delay: .3s; }
-
-/* ── RESPONSIVE ── */
-@media (max-width: 1024px) {
-    header { padding: 0 24px; }
-    nav a { padding: 0 14px; font-size: 11px; }
-    .hero { grid-template-columns: 1fr; }
-    .hero-right { display: none; }
-    .hero-left { padding: 60px 32px; }
-    .about-body, .section-header, .exp-item, .edu-body { grid-template-columns: 1fr; }
-    .section-num { border-right: none; border-bottom: 1.5px solid var(--black); }
-    .about-sidebar { border-right: none; border-bottom: 1.5px solid var(--black); }
-    .exp-left { border-right: none; border-bottom: 1.5px solid var(--black); }
-    .cert-body { grid-template-columns: 1fr; }
-    .cert-card { border-right: none; }
-    .services-body { grid-template-columns: 1fr; }
-    .srv-card { border-right: none; }
-    .srv-card:nth-child(4), .srv-card:nth-child(5) { border-bottom: 1.5px solid var(--black); }
-    .contact-body { grid-template-columns: 1fr; }
-    .contact-left { border-right: none; }
-    footer { padding: 20px 24px; flex-direction: column; gap: 8px; }
+/* RESPONSIVE */
+@media(max-width:960px){
+  .nav{padding:0 20px;}
+  .nav-links a:not(.nav-cta){display:none;}
+  .hero,.sec{padding-left:20px;padding-right:20px;}
+  .about-grid,.cert-grid,.srv-grid,.edu-grid,.contact-grid{grid-template-columns:1fr;}
+  .stats-row{flex-wrap:wrap;}
+  .stat{min-width:calc(50% - 1px);}
 }
 </style>
 </head>
 <body>
 
-<!-- Custom cursor -->
-<div class="cursor" id="cur"></div>
-<div class="cursor-ring" id="curR"></div>
+<div id="cur"></div>
+<div id="curR"></div>
 
-<!-- HEADER -->
-<header>
-    <div class="logo">RIFKY<em>.</em></div>
-    <nav>
-        <a href="#about">Tentang</a>
-        <a href="#experience">Pengalaman</a>
-        <a href="#certifications">Sertifikat</a>
-        <a href="#services">Layanan</a>
-        <a href="#contact">Kontak</a>
-    </nav>
-</header>
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Rifky<span>.</span></a>
+  <div class="nav-links">
+    <a href="#about">Tentang</a>
+    <a href="#experience">Pengalaman</a>
+    <a href="#certifications">Sertifikat</a>
+    <a href="#contact" class="nav-cta">Hubungi →</a>
+  </div>
+</nav>
 
 <!-- HERO -->
 <section class="hero">
-    <div class="hero-left">
-        <div>
-            <div class="hero-eyebrow">
-                <div class="hero-dot"></div>
-                <span>Tersedia untuk Peluang Baru</span>
-            </div>
-            <h1 class="hero-name reveal">
-                RIFKY<br>
-                <span class="line-teal">HIDAYAT</span><br>
-                AULIA MUHTI
-            </h1>
-        </div>
-        <div class="hero-bottom">
-            <p class="hero-desc reveal r2">
-                Sarjana Akuntansi Universitas Riau — bersertifikat BNSP, Brevet A&B, dan CTT. 
-                Terlatih dalam analisis keuangan, perpajakan, dan pengelolaan laporan yang presisi.
-            </p>
-            <a href="#contact" class="hero-cta reveal r3">
-                <span>Hubungi Saya</span>
-                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-        </div>
-    </div>
-    <div class="hero-right">
-        <div class="hero-stat-block">
-            <div class="stat-cell">
-                <div class="stat-big">5</div>
-                <div class="stat-label">Sertifikasi<br>Profesional</div>
-            </div>
-            <div class="stat-cell">
-                <div class="stat-big">5+</div>
-                <div class="stat-label">Organisasi<br>Aktif</div>
-            </div>
-            <div class="stat-cell">
-                <div class="stat-big">A+B</div>
-                <div class="stat-label">Brevet<br>Pajak</div>
-            </div>
-            <div class="stat-cell">
-                <div class="stat-big">UIX</div>
-                <div class="stat-label">UI/UX<br>Tersertifikasi</div>
-            </div>
-        </div>
-        <div class="hero-cert-preview">
-            <div class="cert-preview-label">Sertifikasi Dimiliki</div>
-            <div class="cert-pill-row">
-                <div class="cert-pill teal">BNSP Microsoft Office</div>
-                <div class="cert-pill teal">Brevet A</div>
-                <div class="cert-pill teal">Brevet B</div>
-                <div class="cert-pill teal">CTT</div>
-                <div class="cert-pill teal">UI/UX</div>
-            </div>
-        </div>
-    </div>
+  <div class="glow1"></div>
+  <div class="glow2"></div>
+
+  <div class="badge reveal">
+    <div class="badge-dot"></div>
+    Tersedia untuk Peluang Baru
+  </div>
+
+  <h1 class="hero-name reveal d1">
+    Rifky<br>
+    <span class="g">Hidayat</span>
+  </h1>
+
+  <p class="hero-sub reveal d2">
+    Sarjana Akuntansi Universitas Riau — bersertifikasi BNSP, Brevet A&amp;B, dan CTT. Spesialis analisis keuangan, perpajakan, dan laporan yang presisi.
+  </p>
+
+  <div class="hero-btns reveal d3">
+    <a href="#contact" class="btn-p">
+      Hubungi Saya
+      <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+    <a href="#experience" class="btn-s">Lihat Pengalaman</a>
+  </div>
+
+  <div class="stats-row reveal d4">
+    <div class="stat"><div class="stat-n">5</div><div class="stat-l">Sertifikasi<br>Profesional</div></div>
+    <div class="stat"><div class="stat-n">5+</div><div class="stat-l">Organisasi<br>Aktif</div></div>
+    <div class="stat"><div class="stat-n">A+B</div><div class="stat-l">Brevet<br>Perpajakan</div></div>
+    <div class="stat"><div class="stat-n">UIX</div><div class="stat-l">UI/UX<br>Tersertifikasi</div></div>
+  </div>
+
+  <div class="scroll-down">
+    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    <span>Gulir ke bawah</span>
+  </div>
 </section>
 
 <!-- ABOUT -->
-<div class="section-wrap" id="about">
-    <div class="section-header">
-        <div class="section-num">
-            <div class="section-num-big">01</div>
-            <div class="section-num-label">Profil</div>
-        </div>
-        <div class="section-title-wrap">
-            <h2 class="reveal">TENTANG SAYA</h2>
-        </div>
-    </div>
-    <div class="about-body">
-        <div class="about-sidebar reveal">
-            <div class="about-avatar">
-                <svg width="52" height="52" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                <span>Foto Profil</span>
-            </div>
-            <div class="socials">
-                <a class="social-link" href="https://www.linkedin.com/in/rifky-hidayat-aulia-muhti-7841b8392" target="_blank">
-                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zm7 0h3.8v2.2h.1c.5-1 1.8-2.2 3.9-2.2 4.2 0 5 2.8 5 6.5V24h-4v-8.3c0-2-.1-4.5-2.8-4.5-2.8 0-3.2 2.1-3.2 4.3V24h-4V8z"/></svg>
-                    LinkedIn
-                </a>
-                <a class="social-link" href="https://instagram.com/rfhyttt_" target="_blank">
-                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2c1.654 0 3 1.346 3 3v10c0 1.654-1.346 3-3 3H7c-1.654 0-3-1.346-3-3V7c0-1.654 1.346-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2c1.654 0 3 1.346 3 3s-1.346 3-3 3a3 3 0 010-6zm4.8-.9a1.1 1.1 0 11-2.2 0 1.1 1.1 0 012.2 0z"/></svg>
-                    Instagram
-                </a>
-                <a class="social-link" href="https://www.tiktok.com/@rfhytt_" target="_blank">
-                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12.004 2h2.163c.254 1.422.97 2.63 2.05 3.49 1.08.86 2.39 1.33 3.783 1.353v2.2c-1.44.036-2.845-.325-4.07-1.045v7.43c0 3.305-2.68 5.986-5.986 5.986-3.306 0-5.986-2.68-5.986-5.986 0-3.305 2.68-5.986 5.986-5.986.31 0 .616.026.916.076v2.356a3.63 3.63 0 00-.916-.12c-1.977 0-3.578 1.6-3.578 3.578 0 1.977 1.601 3.578 3.578 3.578 1.977 0 3.578-1.6 3.578-3.578V2z"/></svg>
-                    TikTok
-                </a>
-                <a class="social-link" href="mailto:rifky@email.com">
-                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg>
-                    Email
-                </a>
-            </div>
-        </div>
-        <div class="about-main reveal r2">
-            <p>
-                Saya <strong>Rifky Hidayat Aulia Muhti</strong>, lulusan <em>S1 Akuntansi Universitas Riau</em> dengan rekam jejak aktif di berbagai organisasi dan dunia profesional sejak masa kuliah.
-            </p>
-            <p>
-                Latar belakang dari <strong>SMAN Pintar Provinsi Riau</strong> membentuk kedisiplinan dan kemampuan berpikir analitis yang kuat. Hal ini menjadi fondasi dalam menjalankan tugas-tugas akuntansi yang menuntut ketelitian, konsistensi, dan tanggung jawab tinggi.
-            </p>
-            <p>
-                Saya memiliki kompetensi yang telah <strong>tersertifikasi secara nasional</strong> — mulai dari Microsoft Office (BNSP), perpajakan (Brevet A & B), hingga bidang teknologi (CTT & UI/UX). Ini mencerminkan komitmen saya untuk terus berkembang lintas bidang.
-            </p>
+<section class="sec" id="about">
+  <div class="chip reveal"><svg width="7" height="7" viewBox="0 0 7 7" fill="currentColor"><circle cx="3.5" cy="3.5" r="3.5"/></svg> 01 — Profil</div>
+  <h2 class="stitle reveal">Tentang <span class="g">Saya</span></h2>
+  <p class="ssub reveal d1">Akuntan muda bersertifikat dengan rekam jejak lintas organisasi.</p>
 
-            <div class="skills-section">
-                <div class="skills-heading">Kompetensi Teknis</div>
-                <div class="skill-row">
-                    <div class="skill-name">Akuntansi Keuangan</div>
-                    <div class="skill-track"><div class="skill-fill" style="width:90%"></div></div>
-                    <div class="skill-pct">90%</div>
-                </div>
-                <div class="skill-row">
-                    <div class="skill-name">Perpajakan (Brevet A & B)</div>
-                    <div class="skill-track"><div class="skill-fill" style="width:85%"></div></div>
-                    <div class="skill-pct">85%</div>
-                </div>
-                <div class="skill-row">
-                    <div class="skill-name">Microsoft Office (BNSP)</div>
-                    <div class="skill-track"><div class="skill-fill" style="width:92%"></div></div>
-                    <div class="skill-pct">92%</div>
-                </div>
-                <div class="skill-row">
-                    <div class="skill-name">Analisis Laporan Keuangan</div>
-                    <div class="skill-track"><div class="skill-fill" style="width:84%"></div></div>
-                    <div class="skill-pct">84%</div>
-                </div>
-                <div class="skill-row">
-                    <div class="skill-name">Audit & Pengendalian Internal</div>
-                    <div class="skill-track"><div class="skill-fill" style="width:78%"></div></div>
-                    <div class="skill-pct">78%</div>
-                </div>
-                <div class="skill-row">
-                    <div class="skill-name">UI/UX & CTT</div>
-                    <div class="skill-track"><div class="skill-fill" style="width:72%"></div></div>
-                    <div class="skill-pct">72%</div>
-                </div>
-            </div>
-        </div>
+  <div class="about-grid">
+    <div class="card reveal">
+      <div class="avatar">
+        <svg width="46" height="46" fill="none" stroke="currentColor" stroke-width="0.8" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span>Foto Profil</span>
+      </div>
+      <div class="links">
+        <a class="lnk" href="https://www.linkedin.com/in/rifky-hidayat-aulia-muhti-7841b8392" target="_blank">
+          <div class="lnk-l"><div class="lnk-ic" style="color:#0A84FF">in</div><div><div class="lnk-name">LinkedIn</div><div class="lnk-val">Rifky Hidayat</div></div></div>
+          <span class="chev">›</span>
+        </a>
+        <a class="lnk" href="https://instagram.com/rfhyttt_" target="_blank">
+          <div class="lnk-l"><div class="lnk-ic" style="color:#E1306C">ig</div><div><div class="lnk-name">Instagram</div><div class="lnk-val">@rfhyttt_</div></div></div>
+          <span class="chev">›</span>
+        </a>
+        <a class="lnk" href="https://www.tiktok.com/@rfhytt_" target="_blank">
+          <div class="lnk-l"><div class="lnk-ic" style="color:#fff">tt</div><div><div class="lnk-name">TikTok</div><div class="lnk-val">@rfhytt_</div></div></div>
+          <span class="chev">›</span>
+        </a>
+        <a class="lnk" href="mailto:rifky@email.com">
+          <div class="lnk-l"><div class="lnk-ic" style="color:#30D158">@</div><div><div class="lnk-name">Email</div><div class="lnk-val">rifky@email.com</div></div></div>
+          <span class="chev">›</span>
+        </a>
+      </div>
     </div>
-</div>
+
+    <div class="about-r">
+      <div class="text-card reveal d1">
+        <p>Saya <strong>Rifky Hidayat Aulia Muhti</strong>, lulusan <em>S1 Akuntansi Universitas Riau</em> dengan rekam jejak aktif di berbagai organisasi dan dunia profesional sejak masa kuliah.</p>
+        <p>Latar belakang dari <strong>SMAN Pintar Provinsi Riau</strong> membentuk kedisiplinan dan kemampuan berpikir analitis yang kuat — fondasi dalam menjalankan tugas akuntansi yang menuntut ketelitian tinggi.</p>
+        <p>Kompetensi telah <strong>tersertifikasi secara nasional</strong> — Microsoft Office (BNSP), perpajakan (Brevet A &amp; B), hingga teknologi (CTT &amp; UI/UX).</p>
+      </div>
+      <div class="skills-card reveal d2">
+        <div class="sk-head">Kompetensi Teknis</div>
+        <div class="sk"><div class="sk-top"><span class="sk-lbl">Akuntansi Keuangan</span><span class="sk-pct">90%</span></div><div class="sk-bar"><div class="sk-fill" style="width:90%"></div></div></div>
+        <div class="sk"><div class="sk-top"><span class="sk-lbl">Perpajakan (Brevet A&amp;B)</span><span class="sk-pct">85%</span></div><div class="sk-bar"><div class="sk-fill" style="width:85%"></div></div></div>
+        <div class="sk"><div class="sk-top"><span class="sk-lbl">Microsoft Office (BNSP)</span><span class="sk-pct">92%</span></div><div class="sk-bar"><div class="sk-fill" style="width:92%"></div></div></div>
+        <div class="sk"><div class="sk-top"><span class="sk-lbl">Analisis Laporan Keuangan</span><span class="sk-pct">84%</span></div><div class="sk-bar"><div class="sk-fill" style="width:84%"></div></div></div>
+        <div class="sk"><div class="sk-top"><span class="sk-lbl">Audit &amp; Pengendalian Internal</span><span class="sk-pct">78%</span></div><div class="sk-bar"><div class="sk-fill" style="width:78%"></div></div></div>
+        <div class="sk"><div class="sk-top"><span class="sk-lbl">UI/UX &amp; CTT</span><span class="sk-pct">72%</span></div><div class="sk-bar"><div class="sk-fill" style="width:72%"></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- EXPERIENCE -->
-<div class="section-wrap" id="experience">
-    <div class="section-header">
-        <div class="section-num">
-            <div class="section-num-big">02</div>
-            <div class="section-num-label">Karier</div>
-        </div>
-        <div class="section-title-wrap">
-            <h2 class="reveal">PENGALAMAN KERJA</h2>
-        </div>
+<section class="sec" id="experience" style="padding-top:0">
+  <div class="chip reveal"><svg width="7" height="7" viewBox="0 0 7 7" fill="currentColor"><circle cx="3.5" cy="3.5" r="3.5"/></svg> 02 — Karier</div>
+  <h2 class="stitle reveal">Pengalaman <span class="g">Kerja</span></h2>
+  <p class="ssub reveal d1">Rekam jejak di organisasi dan usaha profesional.</p>
+
+  <div class="exp-list">
+    <div class="exp-card reveal">
+      <div class="exp-logo">MKA</div>
+      <div><div class="exp-meta"><span class="exp-role-tag">Staff Keuangan & Marketing</span><span class="exp-time">2025 — Kini</span></div><div class="exp-co">Matakayu Art</div><div class="exp-desc">Mengelola laporan keuangan operasional, menyusun anggaran belanja, dan mendukung strategi pemasaran melalui analisis biaya serta efisiensi pengeluaran bisnis kreatif.</div></div>
     </div>
-    <div class="exp-body">
-        <div class="exp-item reveal">
-            <div class="exp-left">
-                <div class="exp-year">2025 — Kini</div>
-                <div class="exp-company-icon">MKA</div>
-            </div>
-            <div class="exp-right">
-                <div class="exp-role">Staff Keuangan & Marketing</div>
-                <div class="exp-company">Matakayu Art</div>
-                <div class="exp-desc">Mengelola laporan keuangan operasional, menyusun anggaran belanja, dan mendukung strategi pemasaran melalui analisis biaya serta efisiensi pengeluaran bisnis kreatif.</div>
-            </div>
-        </div>
-        <div class="exp-item reveal">
-            <div class="exp-left">
-                <div class="exp-year">2025 — Kini</div>
-                <div class="exp-company-icon">CRS</div>
-            </div>
-            <div class="exp-right">
-                <div class="exp-role">Administrasi Keuangan Freelance</div>
-                <div class="exp-company">Creasov Online Shop</div>
-                <div class="exp-desc">Menyusun laporan keuangan bulanan, mencatat arus kas masuk dan keluar, serta membantu pembukuan untuk mendukung keputusan operasional toko daring.</div>
-            </div>
-        </div>
-        <div class="exp-item reveal">
-            <div class="exp-left">
-                <div class="exp-year">2025 — Kini</div>
-                <div class="exp-company-icon">L7V</div>
-            </div>
-            <div class="exp-right">
-                <div class="exp-role">Owner & Pengelola Keuangan</div>
-                <div class="exp-company">Lucky Seven Visual</div>
-                <div class="exp-desc">Mengelola seluruh aspek keuangan usaha kreatif meliputi perencanaan anggaran, pencatatan transaksi, dan analisis profitabilitas per proyek.</div>
-            </div>
-        </div>
-        <div class="exp-item reveal">
-            <div class="exp-left">
-                <div class="exp-year">2024 — 2025</div>
-                <div class="exp-company-icon">GBI</div>
-            </div>
-            <div class="exp-right">
-                <div class="exp-role">Kepala Divisi Media & Bendahara</div>
-                <div class="exp-company">GenBI Riau</div>
-                <div class="exp-desc">Memimpin divisi media dan merangkap fungsi bendahara — mengelola anggaran organisasi, laporan keuangan kegiatan, serta koordinasi keuangan lintas divisi di lingkungan Beasiswa Bank Indonesia.</div>
-            </div>
-        </div>
-        <div class="exp-item reveal">
-            <div class="exp-left">
-                <div class="exp-year">2024</div>
-                <div class="exp-company-icon">QR</div>
-            </div>
-            <div class="exp-right">
-                <div class="exp-role">PIC Administrasi & Sosial Media</div>
-                <div class="exp-company">QRIS Riau</div>
-                <div class="exp-desc">Mengelola administrasi keuangan kampanye QRIS, pelaporan kegiatan, dan koordinasi data untuk mendukung program literasi transaksi digital Bank Indonesia di wilayah Riau.</div>
-            </div>
-        </div>
+    <div class="exp-card reveal d1">
+      <div class="exp-logo">CRS</div>
+      <div><div class="exp-meta"><span class="exp-role-tag">Administrasi Keuangan Freelance</span><span class="exp-time">2025 — Kini</span></div><div class="exp-co">Creasov Online Shop</div><div class="exp-desc">Menyusun laporan keuangan bulanan, mencatat arus kas masuk dan keluar, serta membantu pembukuan untuk mendukung keputusan operasional toko daring.</div></div>
     </div>
-</div>
+    <div class="exp-card reveal d1">
+      <div class="exp-logo">L7V</div>
+      <div><div class="exp-meta"><span class="exp-role-tag">Owner & Pengelola Keuangan</span><span class="exp-time">2025 — Kini</span></div><div class="exp-co">Lucky Seven Visual</div><div class="exp-desc">Mengelola seluruh aspek keuangan usaha kreatif meliputi perencanaan anggaran, pencatatan transaksi, dan analisis profitabilitas per proyek.</div></div>
+    </div>
+    <div class="exp-card reveal d2">
+      <div class="exp-logo">GBI</div>
+      <div><div class="exp-meta"><span class="exp-role-tag">Kepala Divisi Media & Bendahara</span><span class="exp-time">2024 — 2025</span></div><div class="exp-co">GenBI Riau</div><div class="exp-desc">Memimpin divisi media dan merangkap fungsi bendahara — mengelola anggaran organisasi, laporan keuangan kegiatan, serta koordinasi keuangan lintas divisi di lingkungan Beasiswa Bank Indonesia.</div></div>
+    </div>
+    <div class="exp-card reveal d2">
+      <div class="exp-logo">QR</div>
+      <div><div class="exp-meta"><span class="exp-role-tag">PIC Administrasi & Sosial Media</span><span class="exp-time">2024</span></div><div class="exp-co">QRIS Riau</div><div class="exp-desc">Mengelola administrasi keuangan kampanye QRIS, pelaporan kegiatan, dan koordinasi data untuk mendukung program literasi transaksi digital Bank Indonesia di wilayah Riau.</div></div>
+    </div>
+  </div>
+</section>
 
 <!-- CERTIFICATIONS -->
-<div class="section-wrap" id="certifications">
-    <div class="section-header">
-        <div class="section-num">
-            <div class="section-num-big">03</div>
-            <div class="section-num-label">Lisensi</div>
-        </div>
-        <div class="section-title-wrap">
-            <h2 class="reveal">SERTIFIKASI PROFESIONAL</h2>
-        </div>
+<section class="sec" id="certifications" style="padding-top:0">
+  <div class="chip reveal"><svg width="7" height="7" viewBox="0 0 7 7" fill="currentColor"><circle cx="3.5" cy="3.5" r="3.5"/></svg> 03 — Lisensi</div>
+  <h2 class="stitle reveal">Sertifikasi <span class="g">Profesional</span></h2>
+  <p class="ssub reveal d1">Kompetensi diakui secara nasional di keuangan dan teknologi.</p>
+
+  <div class="cert-grid">
+    <div class="cert-card reveal">
+      <div class="cert-ic b"><svg width="20" height="20" fill="none" stroke="#0A84FF" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg></div>
+      <div class="ctag b">BNSP Nasional</div>
+      <div class="cname">Microsoft<br>Office</div>
+      <div class="cdesc">Diterbitkan oleh <strong>Badan Nasional Sertifikasi Profesi (BNSP)</strong> — sertifikasi kompetensi Microsoft Office tingkat profesional nasional.</div>
+      <div class="cbadge b"><svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Terverifikasi</div>
     </div>
-    <div class="cert-body">
-        <div class="cert-card reveal">
-            <div>
-                <div class="cert-badge national">BNSP Nasional</div>
-                <div class="cert-name">Microsoft<br>Office</div>
-                <div class="cert-issuer">Diterbitkan oleh <strong>Badan Nasional Sertifikasi Profesi (BNSP)</strong> — sertifikasi kompetensi penggunaan Microsoft Office tingkat profesional.</div>
-            </div>
-            <div class="cert-footer">
-                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                Terverifikasi
-            </div>
-        </div>
-        <div class="cert-card reveal r2">
-            <div>
-                <div class="cert-badge verified">Perpajakan</div>
-                <div class="cert-name">Brevet A<br>& Brevet B</div>
-                <div class="cert-issuer">Sertifikasi perpajakan komprehensif yang mencakup <strong>pajak orang pribadi (Brevet A)</strong> dan <strong>pajak badan usaha (Brevet B)</strong> sesuai regulasi DJP.</div>
-            </div>
-            <div class="cert-footer">
-                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                2 Sertifikat
-            </div>
-        </div>
-        <div class="cert-card reveal r3">
-            <div>
-                <div class="cert-badge">Teknologi</div>
-                <div class="cert-name">CTT &<br>UI/UX</div>
-                <div class="cert-issuer">Sertifikat <strong>Computer and Technology (CTT)</strong> serta <strong>UI/UX Design</strong> — membuktikan kemampuan lintas bidang teknologi informasi dan desain digital.</div>
-            </div>
-            <div class="cert-footer">
-                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                2 Sertifikat
-            </div>
-        </div>
+    <div class="cert-card reveal d1">
+      <div class="cert-ic g"><svg width="20" height="20" fill="none" stroke="#30D158" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+      <div class="ctag g">Perpajakan</div>
+      <div class="cname">Brevet A<br>&amp; Brevet B</div>
+      <div class="cdesc">Mencakup <strong>pajak orang pribadi (Brevet A)</strong> dan <strong>pajak badan usaha (Brevet B)</strong> sesuai regulasi Direktorat Jenderal Pajak.</div>
+      <div class="cbadge g"><svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> 2 Sertifikat</div>
     </div>
-</div>
+    <div class="cert-card reveal d2">
+      <div class="cert-ic p"><svg width="20" height="20" fill="none" stroke="#5E5CE6" stroke-width="1.8" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+      <div class="ctag p">Teknologi</div>
+      <div class="cname">CTT &amp;<br>UI/UX</div>
+      <div class="cdesc"><strong>Computer and Technology (CTT)</strong> dan <strong>UI/UX Design</strong> — kemampuan lintas bidang teknologi informasi dan desain digital.</div>
+      <div class="cbadge p"><svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> 2 Sertifikat</div>
+    </div>
+  </div>
+</section>
 
 <!-- SERVICES -->
-<div class="section-wrap" id="services">
-    <div class="section-header">
-        <div class="section-num">
-            <div class="section-num-big">04</div>
-            <div class="section-num-label">Jasa</div>
-        </div>
-        <div class="section-title-wrap">
-            <h2 class="reveal">YANG DAPAT SAYA BANTU</h2>
-        </div>
-    </div>
-    <div class="services-body">
-        <div class="srv-card reveal">
-            <div class="srv-num">01</div>
-            <div class="srv-title">Pembukuan & Akuntansi</div>
-            <div class="srv-desc">Pencatatan transaksi harian, jurnal umum, buku besar, dan penyusunan laporan keuangan bulanan yang sistematis.</div>
-            <div class="srv-arrow"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-        </div>
-        <div class="srv-card reveal r2">
-            <div class="srv-num">02</div>
-            <div class="srv-title">Laporan Keuangan</div>
-            <div class="srv-desc">Penyusunan laporan laba rugi, neraca, dan arus kas sesuai SAK/ETAP untuk kebutuhan internal maupun eksternal.</div>
-            <div class="srv-arrow"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-        </div>
-        <div class="srv-card reveal r3">
-            <div class="srv-num">03</div>
-            <div class="srv-title">Perpajakan</div>
-            <div class="srv-desc">Konsultasi pajak, SPT Tahunan, perhitungan PPN & PPh, didukung sertifikasi Brevet A & B yang terverifikasi.</div>
-            <div class="srv-arrow"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-        </div>
-        <div class="srv-card reveal">
-            <div class="srv-num">04</div>
-            <div class="srv-title">Analisis Keuangan</div>
-            <div class="srv-desc">Analisis rasio keuangan, evaluasi kinerja bisnis, dan laporan analitik untuk mendukung keputusan strategis manajemen.</div>
-            <div class="srv-arrow"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-        </div>
-        <div class="srv-card reveal r2">
-            <div class="srv-num">05</div>
-            <div class="srv-title">Anggaran & Proyeksi</div>
-            <div class="srv-desc">Perencanaan anggaran tahunan, proyeksi keuangan, dan monitoring realisasi belanja berbasis Microsoft Excel (BNSP).</div>
-            <div class="srv-arrow"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-        </div>
-        <div class="srv-card reveal r3">
-            <div class="srv-num">06</div>
-            <div class="srv-title">Administrasi & SOP Keuangan</div>
-            <div class="srv-desc">Rekonsiliasi bank, pengendalian internal, pengelolaan dokumen keuangan, dan penyusunan SOP keuangan UMKM.</div>
-            <div class="srv-arrow"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-        </div>
-    </div>
-</div>
+<section class="sec" id="services" style="padding-top:0">
+  <div class="chip reveal"><svg width="7" height="7" viewBox="0 0 7 7" fill="currentColor"><circle cx="3.5" cy="3.5" r="3.5"/></svg> 04 — Jasa</div>
+  <h2 class="stitle reveal">Yang Dapat <span class="g">Saya Bantu</span></h2>
+  <p class="ssub reveal d1">Layanan keuangan profesional untuk bisnis Anda.</p>
+
+  <div class="srv-grid">
+    <div class="srv-card reveal"><div class="srv-n">01</div><div class="srv-ic"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div><div class="srv-t">Pembukuan & Akuntansi</div><div class="srv-d">Pencatatan transaksi harian, jurnal umum, buku besar, dan laporan keuangan bulanan yang sistematis.</div></div>
+    <div class="srv-card reveal d1"><div class="srv-n">02</div><div class="srv-ic"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></div><div class="srv-t">Laporan Keuangan</div><div class="srv-d">Penyusunan laporan laba rugi, neraca, dan arus kas sesuai SAK/ETAP untuk kebutuhan internal maupun eksternal.</div></div>
+    <div class="srv-card reveal d2"><div class="srv-n">03</div><div class="srv-ic"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="srv-t">Perpajakan</div><div class="srv-d">Konsultasi pajak, SPT Tahunan, perhitungan PPN & PPh, didukung sertifikasi Brevet A & B terverifikasi.</div></div>
+    <div class="srv-card reveal"><div class="srv-n">04</div><div class="srv-ic"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div class="srv-t">Analisis Keuangan</div><div class="srv-d">Analisis rasio keuangan, evaluasi kinerja bisnis, dan laporan analitik untuk mendukung keputusan strategis manajemen.</div></div>
+    <div class="srv-card reveal d1"><div class="srv-n">05</div><div class="srv-ic"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><div class="srv-t">Anggaran & Proyeksi</div><div class="srv-d">Perencanaan anggaran tahunan, proyeksi keuangan, dan monitoring realisasi belanja berbasis Excel (BNSP).</div></div>
+    <div class="srv-card reveal d2"><div class="srv-n">06</div><div class="srv-ic"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="srv-t">Administrasi & SOP</div><div class="srv-d">Rekonsiliasi bank, pengendalian internal, dan penyusunan SOP keuangan untuk kebutuhan UMKM.</div></div>
+  </div>
+</section>
 
 <!-- EDUCATION -->
-<div class="section-wrap" id="education">
-    <div class="section-header">
-        <div class="section-num">
-            <div class="section-num-big">05</div>
-            <div class="section-num-label">Akademis</div>
-        </div>
-        <div class="section-title-wrap">
-            <h2 class="reveal">PENDIDIKAN</h2>
-        </div>
-    </div>
-    <div class="edu-body">
-        <div class="edu-card reveal">
-            <div class="edu-year-badge">
-                <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><circle cx="5" cy="5" r="5"/></svg>
-                2021 — 2025
-            </div>
-            <div class="edu-title">S1 AKUNTANSI</div>
-            <div class="edu-school">Universitas Riau</div>
-            <div class="edu-desc">Mempelajari akuntansi keuangan, perpajakan, audit, sistem informasi akuntansi, dan manajemen keuangan. Aktif di berbagai organisasi kampus dan program Beasiswa Bank Indonesia.</div>
-        </div>
-        <div class="edu-card reveal r2">
-            <div class="edu-year-badge">
-                <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><circle cx="5" cy="5" r="5"/></svg>
-                2018 — 2021
-            </div>
-            <div class="edu-title">SMA PINTAR PROVINSI RIAU</div>
-            <div class="edu-school">Sekolah Unggulan Riau</div>
-            <div class="edu-desc">Sekolah berbasis riset dan keunggulan provinsi. Membentuk pola pikir analitis, kedisiplinan tinggi, dan kemampuan berpikir kritis yang menjadi bekal utama di dunia profesional.</div>
-        </div>
-    </div>
-</div>
+<section class="sec" id="education" style="padding-top:0">
+  <div class="chip reveal"><svg width="7" height="7" viewBox="0 0 7 7" fill="currentColor"><circle cx="3.5" cy="3.5" r="3.5"/></svg> 05 — Akademis</div>
+  <h2 class="stitle reveal">Latar Belakang <span class="g">Pendidikan</span></h2>
+  <div class="edu-grid">
+    <div class="edu-card reveal d1"><div class="edu-pill">2021 — 2025</div><div class="edu-deg">S1 Akuntansi</div><div class="edu-sc">Universitas Riau</div><div class="edu-d">Mempelajari akuntansi keuangan, perpajakan, audit, sistem informasi akuntansi, dan manajemen keuangan. Aktif di berbagai organisasi kampus dan program Beasiswa Bank Indonesia.</div></div>
+    <div class="edu-card reveal d2"><div class="edu-pill">2018 — 2021</div><div class="edu-deg">SMA Pintar Provinsi Riau</div><div class="edu-sc">Sekolah Unggulan Riau</div><div class="edu-d">Sekolah berbasis riset dan keunggulan provinsi. Membentuk pola pikir analitis, kedisiplinan tinggi, dan kemampuan berpikir kritis sebagai bekal di dunia profesional.</div></div>
+  </div>
+</section>
 
 <!-- CONTACT -->
-<div class="section-wrap" id="contact">
-    <div class="contact-body">
-        <div class="contact-left">
-            <div>
-                <div class="contact-headline">
-                    AYO<br>
-                    <em>BEKERJA SAMA</em>
-                </div>
-                <div class="contact-sub">
-                    Butuh tenaga akuntan bersertifikat atau konsultan keuangan yang andal? 
-                    Saya siap membantu bisnis Anda tumbuh dengan fondasi keuangan yang kuat.
-                </div>
-            </div>
-            <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:32px">
-                <div class="cert-pill teal">BNSP</div>
-                <div class="cert-pill teal">Brevet A+B</div>
-                <div class="cert-pill teal">CTT</div>
-                <div class="cert-pill teal">UI/UX</div>
-            </div>
-        </div>
-        <div class="contact-right">
-            <div class="contact-item">
-                <span class="contact-type">Email</span>
-                <a class="contact-val" href="mailto:rifky@email.com">rifky@email.com</a>
-            </div>
-            <div class="contact-item">
-                <span class="contact-type">LinkedIn</span>
-                <a class="contact-val" href="https://www.linkedin.com/in/rifky-hidayat-aulia-muhti-7841b8392" target="_blank">Rifky Hidayat Aulia Muhti</a>
-            </div>
-            <div class="contact-item">
-                <span class="contact-type">Instagram</span>
-                <a class="contact-val" href="https://instagram.com/rfhyttt_" target="_blank">@rfhyttt_</a>
-            </div>
-            <a class="contact-btn" href="mailto:rifky@email.com">Kirim Pesan →</a>
-        </div>
+<section class="sec" id="contact" style="padding-top:0">
+  <div class="chip reveal"><svg width="7" height="7" viewBox="0 0 7 7" fill="currentColor"><circle cx="3.5" cy="3.5" r="3.5"/></svg> 06 — Kontak</div>
+  <h2 class="stitle reveal">Ayo <span class="g">Bekerja Sama</span></h2>
+  <div class="contact-grid">
+    <div class="contact-l reveal d1">
+      <div>
+        <div class="c-head">Butuh<span class="g">Akuntan?</span></div>
+        <div class="c-sub">Saya siap membantu bisnis Anda tumbuh dengan fondasi keuangan yang kuat dan tersertifikasi.</div>
+      </div>
+      <div class="c-chips">
+        <span class="c-chip">BNSP</span>
+        <span class="c-chip">Brevet A+B</span>
+        <span class="c-chip">CTT</span>
+        <span class="c-chip">UI/UX</span>
+      </div>
     </div>
-</div>
+    <div class="contact-r reveal d2">
+      <div class="c-list">
+        <div class="c-row"><span class="c-type">Email</span><a class="c-val" href="mailto:rifky@email.com">rifky@email.com</a></div>
+        <div class="c-row"><span class="c-type">LinkedIn</span><a class="c-val" href="https://www.linkedin.com/in/rifky-hidayat-aulia-muhti-7841b8392" target="_blank">Rifky Hidayat Aulia Muhti</a></div>
+        <div class="c-row"><span class="c-type">Instagram</span><a class="c-val" href="https://instagram.com/rfhyttt_" target="_blank">@rfhyttt_</a></div>
+      </div>
+      <a class="btn-p" href="mailto:rifky@email.com" style="width:fit-content">
+        Kirim Pesan
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
 
 <!-- FOOTER -->
 <footer>
-    <p>© 2025 Rifky Hidayat Aulia Muhti. All rights reserved.</p>
-    <div class="footer-logo">RIFKY<em>.</em></div>
+  <p>© 2025 Rifky Hidayat Aulia Muhti. All rights reserved.</p>
+  <div class="f-logo">Rifky<span>.</span></div>
 </footer>
 
 <script>
-// Custom cursor
-const cur = document.getElementById('cur');
-const curR = document.getElementById('curR');
-let mx = 0, my = 0, rx = 0, ry = 0;
-document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-function animCursor() {
-    rx += (mx - rx) * 0.12;
-    ry += (my - ry) * 0.12;
-    cur.style.left = mx + 'px';
-    cur.style.top = my + 'px';
-    curR.style.left = rx + 'px';
-    curR.style.top = ry + 'px';
-    requestAnimationFrame(animCursor);
-}
-animCursor();
+const cur=document.getElementById('cur'),curR=document.getElementById('curR');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+(function a(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;cur.style.left=mx+'px';cur.style.top=my+'px';curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(a);})();
 
-// Reveal on scroll
-const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-        if (e.isIntersecting) {
-            e.target.classList.add('on');
-            // Trigger skill bars
-            e.target.querySelectorAll('.skill-fill').forEach(b => b.classList.add('go'));
-        }
-    });
-}, { threshold: 0.12 });
-document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('on');
+      e.target.querySelectorAll('.sk-fill').forEach(b=>b.classList.add('go'));
+    }
+  });
+},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
-// Skill bar trigger from parent section
-const skillObs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-        if (e.isIntersecting)
-            document.querySelectorAll('.skill-fill').forEach(b => b.classList.add('go'));
-    });
-}, { threshold: 0.15 });
-const ab = document.getElementById('about');
-if (ab) skillObs.observe(ab);
+const sObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)document.querySelectorAll('.sk-fill').forEach(b=>b.classList.add('go'));});
+},{threshold:.1});
+const ab=document.getElementById('about');
+if(ab)sObs.observe(ab);
 </script>
 </body>
 </html>
