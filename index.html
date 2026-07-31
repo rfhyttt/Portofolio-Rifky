@@ -7,20 +7,20 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#000;--bg1:#0A0A0A;--bg2:#111;--bg3:#1A1A1A;
-  --sur:rgba(255,255,255,0.04);--sur2:rgba(255,255,255,0.07);
-  --bdr:rgba(255,255,255,0.08);--bdr2:rgba(255,255,255,0.15);
-  --t1:#F5F5F7;--t2:rgba(245,245,247,0.6);--t3:rgba(245,245,247,0.35);
-  --blue:#0A84FF;--green:#30D158;--purple:#5E5CE6;--gold:#FFD60A;
-  --grad:linear-gradient(135deg,#0A84FF 0%,#5E5CE6 100%);
+  --bg:#00081A;--bg1:#00102E;--bg2:#001838;--bg3:#012047;
+  --sur:rgba(0,145,218,0.06);--sur2:rgba(0,145,218,0.11);
+  --bdr:rgba(0,145,218,0.16);--bdr2:rgba(0,145,218,0.3);
+  --t1:#F5F7FA;--t2:rgba(245,247,250,0.62);--t3:rgba(245,247,250,0.38);
+  --blue:#0091DA;--green:#00A3A1;--purple:#6D2077;--gold:#FDB735;
+  --grad:linear-gradient(135deg,#00338D 0%,#0091DA 100%);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--t1);overflow-x:hidden;-webkit-font-smoothing:antialiased;cursor:none;}
 #cur{width:8px;height:8px;background:var(--blue);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
-#curR{width:30px;height:30px;border:1px solid rgba(10,132,255,0.45);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:transform .45s cubic-bezier(.2,1,.3,1);}
+#curR{width:30px;height:30px;border:1px solid rgba(0,145,218,0.45);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:transform .45s cubic-bezier(.2,1,.3,1);}
 body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");pointer-events:none;z-index:1;opacity:.5;}
-.nav{position:fixed;top:0;left:0;right:0;z-index:500;height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 max(40px,5vw);background:rgba(0,0,0,0.75);backdrop-filter:saturate(180%) blur(24px);-webkit-backdrop-filter:saturate(180%) blur(24px);border-bottom:1px solid var(--bdr);}
+.nav{position:fixed;top:0;left:0;right:0;z-index:500;height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 max(40px,5vw);background:rgba(0,8,26,0.85);backdrop-filter:saturate(180%) blur(24px);-webkit-backdrop-filter:saturate(180%) blur(24px);border-bottom:1px solid var(--bdr);}
 .nav-logo{font-size:16px;font-weight:600;letter-spacing:-0.02em;color:var(--t1);text-decoration:none;}
 .nav-logo span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .nav-links{display:flex;gap:28px;align-items:center;}
@@ -29,9 +29,9 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .nav-cta{padding:7px 18px!important;background:var(--blue);color:#fff!important;border-radius:980px;font-weight:500!important;transition:opacity .2s!important;}
 .nav-cta:hover{opacity:.85;}
 .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:52px max(40px,5vw) 0;position:relative;overflow:hidden;}
-.glow1{position:absolute;width:900px;height:900px;background:radial-gradient(circle,rgba(10,132,255,.11) 0%,transparent 68%);top:50%;left:50%;transform:translate(-50%,-58%);pointer-events:none;}
-.glow2{position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(94,92,230,.07) 0%,transparent 70%);top:65%;left:25%;pointer-events:none;}
-.badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;background:rgba(10,132,255,.1);border:1px solid rgba(10,132,255,.22);border-radius:980px;font-size:12px;font-weight:500;color:var(--blue);margin-bottom:36px;letter-spacing:.01em;}
+.glow1{position:absolute;width:900px;height:900px;background:radial-gradient(circle,rgba(0,145,218,.13) 0%,transparent 68%);top:50%;left:50%;transform:translate(-50%,-58%);pointer-events:none;}
+.glow2{position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(109,32,119,.09) 0%,transparent 70%);top:65%;left:25%;pointer-events:none;}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;background:rgba(0,145,218,.1);border:1px solid rgba(0,145,218,.22);border-radius:980px;font-size:12px;font-weight:500;color:var(--blue);margin-bottom:36px;letter-spacing:.01em;}
 .badge-dot{width:5px;height:5px;border-radius:50%;background:var(--blue);animation:pulse 2.2s ease infinite;}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(1.5)}}
 .hero-name{font-size:clamp(54px,8vw,118px);font-weight:700;letter-spacing:-0.045em;line-height:.92;color:var(--t1);margin-bottom:28px;}
@@ -58,9 +58,6 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 /* ABOUT */
 .about-grid{display:grid;grid-template-columns:300px 1fr;gap:20px;}
 .card{background:var(--sur);border:1px solid var(--bdr);border-radius:20px;padding:28px;backdrop-filter:blur(20px);}
-.profile-photo{width:100%;border-radius:14px;border:1px solid var(--bdr);overflow:hidden;margin-bottom:20px;}
-.profile-photo img{width:100%;height:auto;display:block;object-fit:cover;}
-.profile-gpa{margin-top:12px;display:inline-flex;align-items:center;gap:5px;padding:4px 12px;background:rgba(48,209,88,.1);border:1px solid rgba(48,209,88,.2);border-radius:980px;font-size:11px;font-weight:600;color:var(--green);}
 .links{display:flex;flex-direction:column;gap:2px;}
 .lnk{display:flex;align-items:center;justify-content:space-between;padding:11px 12px;border-radius:10px;text-decoration:none;transition:background .2s;}
 .lnk:hover{background:var(--sur2);}
@@ -90,9 +87,9 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .exp-card:hover{border-color:var(--bdr2);background:var(--sur2);}
 .exp-logo{width:48px;height:48px;background:var(--bg3);border-radius:12px;border:1px solid var(--bdr);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:var(--t2);flex-shrink:0;text-align:center;line-height:1.3;}
 .exp-meta{display:flex;align-items:center;gap:8px;margin-bottom:5px;flex-wrap:wrap;}
-.exp-role-tag{font-size:11px;font-weight:500;color:var(--blue);background:rgba(10,132,255,.1);border:1px solid rgba(10,132,255,.2);padding:3px 10px;border-radius:980px;}
-.exp-role-tag.g{color:var(--green);background:rgba(48,209,88,.1);border-color:rgba(48,209,88,.2);}
-.exp-role-tag.p{color:var(--purple);background:rgba(94,92,230,.1);border-color:rgba(94,92,230,.2);}
+.exp-role-tag{font-size:11px;font-weight:500;color:var(--blue);background:rgba(0,145,218,.1);border:1px solid rgba(0,145,218,.2);padding:3px 10px;border-radius:980px;}
+.exp-role-tag.g{color:var(--green);background:rgba(0,163,161,.1);border-color:rgba(0,163,161,.2);}
+.exp-role-tag.p{color:var(--purple);background:rgba(109,32,119,.1);border-color:rgba(109,32,119,.2);}
 .exp-time{font-size:11px;color:var(--t3);}
 .exp-co{font-size:18px;font-weight:600;letter-spacing:-.03em;color:var(--t1);margin-bottom:8px;}
 .exp-desc{font-size:13px;line-height:1.7;color:var(--t2);font-weight:300;letter-spacing:-.01em;}
@@ -104,18 +101,18 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .cert-card{background:var(--sur);border:1px solid var(--bdr);border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:14px;backdrop-filter:blur(20px);transition:border-color .3s,background .3s,transform .3s;cursor:default;}
 .cert-card:hover{border-color:var(--bdr2);background:var(--sur2);transform:translateY(-3px);}
 .cert-ic{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;}
-.cert-ic.b{background:rgba(10,132,255,.14);}
-.cert-ic.g{background:rgba(48,209,88,.14);}
-.cert-ic.p{background:rgba(94,92,230,.14);}
+.cert-ic.b{background:rgba(0,145,218,.16);}
+.cert-ic.g{background:rgba(0,163,161,.16);}
+.cert-ic.p{background:rgba(109,32,119,.16);}
 .ctag{font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;}
 .ctag.b{color:var(--blue);}.ctag.g{color:var(--green);}.ctag.p{color:var(--purple);}
 .cname{font-size:24px;font-weight:700;letter-spacing:-.04em;line-height:1.05;color:var(--t1);}
 .cdesc{font-size:13px;line-height:1.65;color:var(--t2);font-weight:300;letter-spacing:-.01em;flex:1;}
 .cdesc strong{font-weight:500;color:var(--t1);}
 .cbadge{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:500;padding:4px 10px;border-radius:980px;width:fit-content;margin-top:auto;}
-.cbadge.b{background:rgba(10,132,255,.1);color:var(--blue);border:1px solid rgba(10,132,255,.2);}
-.cbadge.g{background:rgba(48,209,88,.1);color:var(--green);border:1px solid rgba(48,209,88,.2);}
-.cbadge.p{background:rgba(94,92,230,.1);color:var(--purple);border:1px solid rgba(94,92,230,.2);}
+.cbadge.b{background:rgba(0,145,218,.1);color:var(--blue);border:1px solid rgba(0,145,218,.2);}
+.cbadge.g{background:rgba(0,163,161,.1);color:var(--green);border:1px solid rgba(0,163,161,.2);}
+.cbadge.p{background:rgba(109,32,119,.1);color:var(--purple);border:1px solid rgba(109,32,119,.2);}
 /* ACHIEVEMENTS */
 .ach-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
 .ach-card{background:var(--sur);border:1px solid var(--bdr);border-radius:20px;padding:28px 32px;backdrop-filter:blur(20px);display:flex;align-items:flex-start;gap:18px;transition:border-color .3s,background .3s;}
@@ -140,11 +137,11 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .edu-deg{font-size:26px;font-weight:700;letter-spacing:-.04em;line-height:1.05;color:var(--t1);margin-bottom:6px;}
 .edu-sc{font-size:14px;color:var(--blue);font-weight:400;margin-bottom:18px;letter-spacing:-.01em;}
 .edu-d{font-size:13px;line-height:1.7;color:var(--t2);font-weight:300;letter-spacing:-.01em;}
-.gpa-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;background:rgba(48,209,88,.1);border:1px solid rgba(48,209,88,.2);border-radius:980px;font-size:12px;font-weight:600;color:var(--green);margin-bottom:16px;}
+.gpa-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;background:rgba(0,163,161,.1);border:1px solid rgba(0,163,161,.2);border-radius:980px;font-size:12px;font-weight:600;color:var(--green);margin-bottom:16px;}
 /* CONTACT */
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-.contact-l{background:linear-gradient(135deg,rgba(10,132,255,.13) 0%,rgba(94,92,230,.13) 100%);border:1px solid rgba(10,132,255,.18);border-radius:24px;padding:52px;display:flex;flex-direction:column;justify-content:space-between;backdrop-filter:blur(20px);position:relative;overflow:hidden;}
-.contact-l::before{content:'';position:absolute;top:-80px;right:-80px;width:260px;height:260px;background:radial-gradient(circle,rgba(10,132,255,.14) 0%,transparent 70%);pointer-events:none;}
+.contact-l{background:linear-gradient(135deg,rgba(0,51,141,.22) 0%,rgba(109,32,119,.16) 100%);border:1px solid rgba(0,145,218,.22);border-radius:24px;padding:52px;display:flex;flex-direction:column;justify-content:space-between;backdrop-filter:blur(20px);position:relative;overflow:hidden;}
+.contact-l::before{content:'';position:absolute;top:-80px;right:-80px;width:260px;height:260px;background:radial-gradient(circle,rgba(0,145,218,.16) 0%,transparent 70%);pointer-events:none;}
 .c-head{font-size:clamp(38px,5vw,64px);font-weight:700;letter-spacing:-.04em;line-height:.97;color:var(--t1);}
 .c-head .g{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;}
 .c-sub{font-size:15px;font-weight:300;color:var(--t2);line-height:1.6;letter-spacing:-.01em;margin-top:18px;}
@@ -233,25 +230,21 @@ footer p{font-size:12px;color:var(--t3);font-weight:300;}
   <p class="ssub reveal d1">Certified accounting professional with a strong multi-organizational track record.</p>
   <div class="about-grid">
     <div class="card reveal">
-      <div class="profile-photo">
-        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCALtAfQDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDwWiiivkT+iwooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACijIpGOB1x9aLEuaQtBIHU4qFZg+4ryqgnNVby/hiQk/O+MhVPNbQw85O1jzcRm2How5nLT+v6ReaRVODSeZz90/nWba3ryXQjmjEacFuckL69qtiSAZ3SAHHIbg/lW8sHKKuzzaXEFKtPli7fh+ZZDA/WlqsHycrwPfmnmQoMuygeveuaVO2x7NLGKSuyaiovMzgghge47U9WJHbNQ4tG8K0ZbDqKPrRSNU7hRRRQMKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooqG5uYIOJZVQ+nenGLk7JGVevToQc6jSXmMuJpGmEEGAT1b0qN2mgbcW8yP8AiOOV/wAakPk7pmSaNWRMtz0zUN3cIgKId/Hy4B+f9K9GOGqLTl0Pj62dYWopTlVal03svl18ydJd4yW2jPUc0tyUQFmnjKj+IVJZPb3NkJIUCq3B6DkDnio7nTysBEjq20BgqHlgffBrWnhff2PPxWfNYf49WjJuLtWQxWw3MQc4b7o6nJ71DZWrpMZJyy8nIAyxPv8A4VPcI1sXIuLaOULkh4gjbepGc/0rQ1PUbRdURWgWKG4xIsijcCD1Bxzwc/lXoexXLZHyf9pN1faVFe2y6FSDTpWhM6Q7IfM52DAY+h9atsiQRbpSq92Occ1PqMs72D21vBO1pHNnzY5Q6qx65I5PY9OlcneS3DMWeRyVHzZbKjHFYVcLKbXvaHpYDPaOFpyf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" alt="Rifky Hidayat Aulia Muhti" />
-        <div class="profile-gpa">GPA 3.80 / 4.00</div>
-      </div>
       <div class="links">
         <a class="lnk" href="https://www.linkedin.com/in/rifkyhidayatauliamuhti/" target="_blank">
-          <div class="lnk-l"><div class="lnk-ic" style="color:#0A84FF">in</div><div><div class="lnk-name">LinkedIn</div><div class="lnk-val">rifkyhidayatauliamuhti</div></div></div>
+          <div class="lnk-l"><div class="lnk-ic" style="color:var(--blue)">in</div><div><div class="lnk-name">LinkedIn</div><div class="lnk-val">rifkyhidayatauliamuhti</div></div></div>
           <span class="chev">›</span>
         </a>
         <a class="lnk" href="mailto:rifkyhidayatauliam@gmail.com">
-          <div class="lnk-l"><div class="lnk-ic" style="color:#30D158">@</div><div><div class="lnk-name">Email</div><div class="lnk-val">rifkyhidayatauliam@gmail.com</div></div></div>
+          <div class="lnk-l"><div class="lnk-ic" style="color:var(--green)">@</div><div><div class="lnk-name">Email</div><div class="lnk-val">rifkyhidayatauliam@gmail.com</div></div></div>
           <span class="chev">›</span>
         </a>
         <a class="lnk" href="tel:+6282129990582">
-          <div class="lnk-l"><div class="lnk-ic" style="color:#5E5CE6">☎</div><div><div class="lnk-name">Phone / WA</div><div class="lnk-val">+62 821-2999-0582</div></div></div>
+          <div class="lnk-l"><div class="lnk-ic" style="color:var(--purple)">☎</div><div><div class="lnk-name">Phone / WA</div><div class="lnk-val">+62 821-2999-0582</div></div></div>
           <span class="chev">›</span>
         </a>
         <div class="lnk">
-          <div class="lnk-l"><div class="lnk-ic" style="color:#FFD60A">📍</div><div><div class="lnk-name">Location</div><div class="lnk-val">Pekanbaru, Riau – Indonesia</div></div></div>
+          <div class="lnk-l"><div class="lnk-ic" style="color:var(--gold)">📍</div><div><div class="lnk-name">Location</div><div class="lnk-val">Pekanbaru, Riau – Indonesia</div></div></div>
         </div>
       </div>
     </div>
@@ -282,7 +275,6 @@ footer p{font-size:12px;color:var(--t3);font-weight:300;}
   <p class="ssub reveal d1">Professional roles in research, accounting systems, and digital marketing.</p>
   <div class="exp-list">
 
-    <!-- Research Assistant -->
     <div class="exp-card reveal">
       <div class="exp-logo">BIMA</div>
       <div>
@@ -297,7 +289,6 @@ footer p{font-size:12px;color:var(--t3);font-weight:300;}
       </div>
     </div>
 
-    <!-- Accounting System Developer -->
     <div class="exp-card reveal d1">
       <div class="exp-logo">ACS<br>Dev</div>
       <div>
@@ -312,7 +303,6 @@ footer p{font-size:12px;color:var(--t3);font-weight:300;}
       </div>
     </div>
 
-    <!-- Social Media Specialist Bank Indonesia -->
     <div class="exp-card reveal d1">
       <div class="exp-logo">BI<br>QRIS</div>
       <div>
@@ -327,7 +317,6 @@ footer p{font-size:12px;color:var(--t3);font-weight:300;}
       </div>
     </div>
 
-    <!-- PT Harmoni Matakayu -->
     <div class="exp-card reveal d2">
       <div class="exp-logo">MKY</div>
       <div>
@@ -352,7 +341,6 @@ footer p{font-size:12px;color:var(--t3);font-weight:300;}
   <p class="ssub reveal d1">Leadership across campus organizations and national Bank Indonesia programs.</p>
   <div class="exp-list">
 
-    <!-- GENBI -->
     <div class="exp-card reveal">
       <div class="exp-logo">GEN<br>BI</div>
       <div>
@@ -367,7 +355,6 @@ footer p{font-size:12px;color:var(--t3);font-weight:300;}
       </div>
     </div>
 
-    <!-- TANJAK -->
     <div class="exp-card reveal d1">
       <div class="exp-logo">TAN<br>JAK</div>
       <div>
@@ -382,7 +369,6 @@ footer p{font-size:12px;color:var(--t3);font-weight:300;}
       </div>
     </div>
 
-    <!-- CBPR -->
     <div class="exp-card reveal d2">
       <div class="exp-logo">CBPR</div>
       <div>
@@ -396,7 +382,6 @@ footer p{font-size:12px;color:var(--t3);font-weight:300;}
       </div>
     </div>
 
-    <!-- LPII -->
     <div class="exp-card reveal d2">
       <div class="exp-logo">LPII<br>FEB</div>
       <div>
@@ -408,7 +393,6 @@ footer p{font-size:12px;color:var(--t3);font-weight:300;}
       </div>
     </div>
 
-    <!-- BEM -->
     <div class="exp-card reveal d3">
       <div class="exp-logo">BEM<br>FEB</div>
       <div>
@@ -430,21 +414,21 @@ footer p{font-size:12px;color:var(--t3);font-weight:300;}
   <p class="ssub reveal d1">Nationally recognized competencies in taxation, office technology, and English proficiency.</p>
   <div class="cert-grid">
     <div class="cert-card reveal">
-      <div class="cert-ic g"><svg width="20" height="20" fill="none" stroke="#30D158" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+      <div class="cert-ic g"><svg width="20" height="20" fill="none" stroke="#00A3A1" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
       <div class="ctag g">Taxation — ATPI</div>
       <div class="cname">Certified Tax<br>Technician (CTT)</div>
       <div class="cdesc">Issued by <strong>Asosiasi Teknisi Pajak Indonesia (ATPI)</strong> via LKP Sahabat Prestasi. The <strong>Professional Certified Tax Technician (CTT)</strong> validates professional competency in tax administration and compliance per Directorate General of Taxation standards.</div>
       <div class="cbadge g"><svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> April 2026 — Verified</div>
     </div>
     <div class="cert-card reveal d1">
-      <div class="cert-ic g"><svg width="20" height="20" fill="none" stroke="#30D158" stroke-width="1.8" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg></div>
+      <div class="cert-ic g"><svg width="20" height="20" fill="none" stroke="#00A3A1" stroke-width="1.8" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg></div>
       <div class="ctag g">Taxation — ATPI</div>
       <div class="cname">Tax Brevet<br>A &amp; B</div>
       <div class="cdesc">Issued by <strong>ATPI</strong> via LKP Sahabat Prestasi. Covers <strong>Brevet A</strong> (individual taxation, including PPh 21, 22, 23, 25, 26) and <strong>Brevet B</strong> (corporate taxation, including PPN and PPh Badan) per DJP regulations.</div>
       <div class="cbadge g"><svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> April 2026 — Verified</div>
     </div>
     <div class="cert-card reveal d2">
-      <div class="cert-ic b"><svg width="20" height="20" fill="none" stroke="#0A84FF" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg></div>
+      <div class="cert-ic b"><svg width="20" height="20" fill="none" stroke="#0091DA" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg></div>
       <div class="ctag b">BNSP National</div>
       <div class="cname">Microsoft<br>Office Advanced</div>
       <div class="cdesc">Issued by <strong>Badan Nasional Sertifikasi Profesi (BNSP)</strong> via Digital Teknologi Informasi Indonesia. Covers professional-level competency in <strong>Microsoft Word, Excel, and PowerPoint</strong> — the national standard for office technology.</div>
